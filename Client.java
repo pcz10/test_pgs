@@ -10,7 +10,7 @@ public class Client
 	
 	@Override
 	public String toString() {
-		return "Client [name=" + name + ", surname=" + surname +"]";
+		return "\nClient [name = " + name + ", surname = " + surname +"]";
 	}
 	
 	private String name;

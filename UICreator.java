@@ -24,7 +24,7 @@ public class UICreator
 	}
 	private String getModelFromUser()
 	{
-		System.out.println("\nType car brand: ");
+		System.out.println("\nType car model: ");
 		String model = sc.next();
 		return model;
 	}
@@ -42,20 +42,19 @@ public class UICreator
 	}
 	public void createMenu()
 	{
-		
+		DataBase controlVar = new DataBase();
+		Rentable renter = new Renter(controlVar);
+		Displayer displayer = new Displayer(controlVar);
 		while(true)
 		{	
-			DataBase controlVar = new DataBase();
-			Rentable renter = new Renter(controlVar);
-			Displayer displayer = new Displayer(controlVar);
 			displayOptions();
 			System.out.println("Which option do you want to execute?");
 			int i = sc.nextInt();
 			switch(i)
 				{
 				case 1:
-					String model = getModelFromUser();
 					String brand = getBrandFromUser();
+					String model = getModelFromUser();
 					Car car = new Car(brand,model);
 					controlVar.addCar(car);
 					break;	
@@ -74,9 +73,9 @@ public class UICreator
 				case 5:
 					displayer.displayClients();
 					break;
-				//case 6:
-				//	displayer.displayRentLogs();
-				//	break;
+				case 6:
+					displayer.displayRentalHistory();
+					break;
 				case 7:
 					System.exit(0);
 					break;

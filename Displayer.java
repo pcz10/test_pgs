@@ -25,13 +25,10 @@ public class Displayer implements Displayable
 	{
 		System.out.println(controlVar.getListOfClients());
 	}
-	//@Override
-	//public void displayRentLogs()
-	//{
-	//	for(Log tmp : DataBase.getListOfLogs())
-	//	{
-	//		System.out.print(tmp.toString());
-	//	}
-	//}
+	@Override
+	public void displayRentalHistory()
+	{
+		System.out.println(controlVar.getListOfRentalHistory());
+	}
 	private DataBase controlVar;
 }

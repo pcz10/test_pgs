@@ -25,6 +25,8 @@ public class Renter implements Rentable
 		System.out.println("\nGive number of car which you want to rent: ");
 		int i = sc.nextInt();
 		controlVar.getListOfCars().get(i).setStatus(false);
+		RentalHistory rentalHistory = new RentalHistory(controlVar.getListOfCars().get(i));
+		controlVar.addRentalHistory(rentalHistory);
 	}
 	
 	private DataBase controlVar;
