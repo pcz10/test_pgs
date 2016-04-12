@@ -13,9 +13,9 @@ public class Log
 		LOGGER.info("Rented car." );
 	}
 
-	@Override
-	public String () {
-		return LOGGER.info("Rented car." );
-	}
+	//@Override
+	///public String () {
+	//	return LOGGER.info("Rented car." );
+	//}
 	
 }

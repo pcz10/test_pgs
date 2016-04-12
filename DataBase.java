@@ -5,16 +5,23 @@ import java.util.List;
 
 public class DataBase 
 {
-	private static List<Car> listOfCars = new LinkedList<>();
-	private static List<Client> listOfClients = new LinkedList<>();
-	private static List<Log> listOfLogs = new LinkedList<>();
-	public static List<Car> getListOfCars() {
+	public void addCar(Car car)
+	{
+		this.listOfCars.add(car);
+		System.out.println(car);
+	}
+	public void addClient(Client client)
+	{
+		this.listOfClients.add(client);
+	}
+	public List<Car> getListOfCars() {
 		return listOfCars;
 	}
-	public static List<Client> getListOfClients() {
+	public List<Client> getListOfClients() {
 		return listOfClients;
 	}
-	public static List<Log> getListOfLogs() {
-		return listOfLogs;
-	}
+	private List<Car> listOfCars = new LinkedList<>();
+	private List<Client> listOfClients = new LinkedList<>();
+	private List<Log> listOfLogs = new LinkedList<>();
+
 }

@@ -4,22 +4,27 @@ public class Car
 {
 	public Car(String brand, String model)
 	{
+		if (brand!= null && model!= null)
+		{	
 		this.brand = brand;
 		this.model = model;
-		this.status = true;
+		this.availableStatus = true;
+		}
+		else
+			System.out.println("Enter some values");
 	}
 	public boolean getStatus() {
-		return status;
+		return availableStatus;
 	}
 	public boolean setStatus(boolean status) {
-		return this.status = status;
+		return this.availableStatus = status;
 	}
 	@Override
 	public String toString()
 	{
-		return "Car [brand=" + brand + ", model=" + model + ", status=" + status + "]";
+		return "Car [brand=" + brand + ", model=" + model + ", status=" + availableStatus + "]";
 	}
 	private String brand;
 	private String model;
-	private boolean status;
+	private boolean availableStatus;
 }

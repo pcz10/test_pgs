@@ -4,5 +4,6 @@ public interface Displayable
 {
 	public void displayAvailableCars();
 	public void displayClients();
-	public void displayRentLogs();
+	public boolean isCarAvailable(Car car);
+	//public void displayRentLogs();
 }

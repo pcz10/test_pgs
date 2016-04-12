@@ -16,25 +16,57 @@ public class UICreator
 		System.out.println("\n7. Shutdown application.");
 		System.out.println("********************************************");
 	}
+	private String getBrandFromUser()
+	{
+		System.out.println("Type car brand: ");
+		String brand = sc.next();
+		return brand;
+	}
+	private String getModelFromUser()
+	{
+		System.out.println("\nType car brand: ");
+		String model = sc.next();
+		return model;
+	}
+	private String getNameFromUser()
+	{
+		System.out.println("Type client name: ");
+		String name = sc.next();
+		return name;
+	}
+	private String getSurnameFromUser()
+	{
+		System.out.println("\nType client surname: ");
+		String surname = sc.next();
+		return surname;
+	}
 	public void createMenu()
 	{
-		Scanner sc = new Scanner(System.in);
+		
 		while(true)
-		{		
+		{	
+			DataBase controlVar = new DataBase();
+			Rentable renter = new Renter(controlVar);
+			Displayer displayer = new Displayer(controlVar);
 			displayOptions();
 			System.out.println("Which option do you want to execute?");
 			int i = sc.nextInt();
 			switch(i)
 				{
 				case 1:
-					adder.addCar();
+					String model = getModelFromUser();
+					String brand = getBrandFromUser();
+					Car car = new Car(brand,model);
+					controlVar.addCar(car);
 					break;	
-			
 				case 2:
-					adder.addClient();
+					String name = getNameFromUser();
+					String surname = getSurnameFromUser();
+					Client client = new Client(name, surname);
+					controlVar.addClient(client);
 					break;
 				case 3:
-					renter.rentCar();
+					renter.rent();
 					break;
 				case 4:
 					displayer.displayAvailableCars();
@@ -42,9 +74,9 @@ public class UICreator
 				case 5:
 					displayer.displayClients();
 					break;
-				case 6:
-					displayer.displayRentLogs();
-					break;
+				//case 6:
+				//	displayer.displayRentLogs();
+				//	break;
 				case 7:
 					System.exit(0);
 					break;
@@ -53,9 +85,5 @@ public class UICreator
 				}
 			}
 	}
-		
-	
-	private Displayer displayer = new Displayer();
-	private Renter renter = new Renter();
-	private Adder adder = new Adder();
+	private Scanner sc = new Scanner(System.in);
 }

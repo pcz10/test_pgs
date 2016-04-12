@@ -1,31 +1,37 @@
 package tools_car_rental;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
 public class Displayer implements Displayable
 {
+	public Displayer(DataBase controlVar)
+	{
+		this.controlVar = controlVar;
+	}
 	@Override
 	public void displayAvailableCars()
 	{
-		for(Car temp : DataBase.getListOfCars())
+		for(Car temp : controlVar.getListOfCars())
 		{
-			if(temp.getStatus())
+			if(this.isCarAvailable(temp))
 				System.out.println(temp);
 		}
 	}
 	@Override
-	public void displayClients()
+	public boolean isCarAvailable(Car car)
 	{
-		System.out.println(DataBase.getListOfClients());
+		return car.getStatus();
 	}
 	@Override
-	public void displayRentLogs()
+	public void displayClients()
 	{
-		for(Log tmp : DataBase.getListOfLogs())
-		{
-			System.out.print(tmp.toString());
-		}
+		System.out.println(controlVar.getListOfClients());
 	}
-	
+	//@Override
+	//public void displayRentLogs()
+	//{
+	//	for(Log tmp : DataBase.getListOfLogs())
+	//	{
+	//		System.out.print(tmp.toString());
+	//	}
+	//}
+	private DataBase controlVar;
 }
