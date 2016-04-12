@@ -1,5 +1,6 @@
 package tools_car_rental;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UICreator 
@@ -49,7 +50,16 @@ public class UICreator
 		{	
 			displayOptions();
 			System.out.println("Which option do you want to execute?");
-			int i = sc.nextInt();
+			int i=0; 
+			try{
+				i = sc.nextInt();
+			}
+			catch(InputMismatchException e)
+			{
+				System.out.println("Error. Input must be integer. ");
+				sc.next();
+				continue;
+			}
 			switch(i)
 				{
 				case 1:
